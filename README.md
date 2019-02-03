@@ -1,5 +1,8 @@
 # Source-Native
-An open-source transpiler for the Source programming language into Javascript, written in Javascript
+An open-source transpiler for the Source programming language into Javascript, written in Javascript.
+
+
+An explanation of ideas [here](ideas.md).
 
 # Project Timeline
 
