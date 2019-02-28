@@ -129,7 +129,7 @@ and boom, problem solved...
 
 not. 
 
-####Minorer problem
+#### Minorer problem
 
 If the last line is a variable declaration statement, it would get transformed into:
 
