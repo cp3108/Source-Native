@@ -34,7 +34,7 @@ Liberal instrumentation of code is needed to nudge JavaScript to interpret _Sour
 
 ### Line numbers of error messages
 
-As you will see in later instrumented code, the line number shown should an error occur would be different from the original one. Fortunately, this is a solved problem, as minified code poses the same issue as well. (Source Map)[https://github.com/mozilla/source-map] s is a way that maps your transformed code back into the original one (and vice versa). Some simple parsing of the error stack is done, and then more simple detection of what the error and an appropriate message is returned. This does not catch all errors though, so if they can't be parsed properly the original error message gets shown.
+As you will see in later instrumented code, the line number shown should an error occur would be different from the original one. Fortunately, this is a solved problem, as minified code poses the same issue as well. [Source Map](https://github.com/mozilla/source-map) s is a way that maps your transformed code back into the original one (and vice versa). Some simple parsing of the error stack is done, and then more simple detection of what the error and an appropriate message is returned. This does not catch all errors though, so if they can't be parsed properly the original error message gets shown.
 
 ### Variable storage
 
