@@ -453,7 +453,7 @@ and with a small modification to `call`:
 function call(f, args) {
   let result;
   while (true) {
-    if (f.transformedFunction !== undefined) { // retrieve the real function with { isTail: etc }
+    if (f.transformedFunction !== undefined) { // retrieve the real function that returns { isTail: etc }
       f = f.transformedFunction;
     }
     result = f(...args);
