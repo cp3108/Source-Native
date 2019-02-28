@@ -38,7 +38,7 @@ As you will see in later instrumented code, the line number shown should an erro
 
 ### Variable storage
 
-One major problem of using `eval` is that `eval('const a = 1;');` does let us access the variable `a` again. This would not allow the REPL to work, so there needs to be another way. The first idea that came to mind worked out well for the most part.
+One major problem of using `eval` is that `eval('const a = 1;');` does not let us access the variable `a` again as it is not declared in the same scope. This would not allow the REPL to work, so there needs to be another way. The first idea that came to mind worked out well for the most part.
 
 Store declared global variables in a global constant named `STUDENT_GLOBALS`.
 
