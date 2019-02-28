@@ -34,7 +34,7 @@ Liberal instrumentation of code is needed to nudge JavaScript to interpret _Sour
 
 ### Line numbers of error messages
 
-As you will see in later instrumented code, the line number shown should an error occur would be different from the original one. Fortunately, this is a solved problem, as minified code poses the same issue as well. [https://github.com/mozilla/source-map](Source Map)s is a way that maps your transformed code back into the original one (and vice versa). Some simple parsing of the error stack is done, and then more simple detection of what the error and an appropriate message is returned. This does not catch all errors though, so if they can't be parsed properly the original error message gets shown.
+As you will see in later instrumented code, the line number shown should an error occur would be different from the original one. Fortunately, this is a solved problem, as minified code poses the same issue as well. (Source Map)[https://github.com/mozilla/source-map] s is a way that maps your transformed code back into the original one (and vice versa). Some simple parsing of the error stack is done, and then more simple detection of what the error and an appropriate message is returned. This does not catch all errors though, so if they can't be parsed properly the original error message gets shown.
 
 ### Variable storage
 
@@ -519,4 +519,9 @@ If the exact same string of code is executed again, the time limit will be incre
 This should be enough for most, if not all correct code to run while protecting against infinite loops that crash the browser.
 1s is still a long time to be unresponsive when code is being typed though.
 Maybe a starting time limit of 100ms is better, but more tests need to be done to determine if 100ms will create too many false positives.
+
+## Nice function strings
+Small note, since not getting into the implementation details.
+
+Obviously, we can't output the transformed body of the function when turning them into a string. So, we store the original stringified function somewhere else first, and then change the toString method of all the functions to use the original stringified function.
 
