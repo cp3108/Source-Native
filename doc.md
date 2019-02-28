@@ -88,7 +88,7 @@ STUDENT_GLOBALS["sum"] = {kind: 'let', value: sum}; // store back variable sum
 // PI does not need to be copied back since it's constant.
 ```
 
-####Minor Problem 
+#### Minor Problem 
 
 ```js
 const one = 1;
