@@ -3,14 +3,16 @@ An ongoing documentation about the many failed attempts at writing an open-sourc
 
 An explanation of original ideas [here](ideas.md).
 
+An explanation of final work [here](doc.md).
+
 # Progress:
 - [x] Native!
 - [x] Builtins work! 
 - [x] Can store constants and letiables (repl works)
 - [x] Proper tail calls (Iterative processes are iterative)
-- [ ] Enforcing of strict types (`'' * ''` still works)
-- [ ] Error handling (just throws a bunch of unhelpful JS errors)
-- [ ] stringifying functions (shows the transpiled code currently) 
+- [x] Enforcing of strict types (`'' * ''` still works)
+- [x] Error handling (just throws a bunch of unhelpful JS errors)
+- [x] stringifying functions (shows the transpiled code currently) 
 
 # Project Timeline
 
