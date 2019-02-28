@@ -227,7 +227,7 @@ itselfIfBooleanElseError('string') ? 1 : 2;
 
 As said earlier, _Source_ requires tail-recursive functions to give rise to an iterative process. This does not happen natively in most browsers. As such, some magic needs to happen.
 
-[Click here if you would like to skip to skip the failed attempts](#two-wrongs-make-a-right-the-final-working-solution)
+[Click here if you would like to skip the failed attempts](#two-wrongs-make-a-right-the-final-working-solution)
 
 ### Failed attempt 1: Wishful thinking
 
