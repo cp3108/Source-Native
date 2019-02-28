@@ -353,7 +353,7 @@ sum;
 
 In retrospect this was a horrible idea, and now it looks so painfully obvious this wouldn't work. I leaned towards it because it seemed so simple and dreamy. Ah well.
 
-### Failed attempt 2: Trampolines only work if everyone jumps
+### Failed attempt 2: Trampolines are fun only if everyone jumps
 
 We use a trampoline. All return statements are transformed into objects (so they do not perform recursive calls that can blow the stack).
 
