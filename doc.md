@@ -509,7 +509,7 @@ while (i < 10) {
 
 We augment the code with a check, and if the code has been running for >1s we throw an error:
 ```
-Line x: Potential infinite recursion detected: f(1000001) ... f(1000002) ... f(1000003).
+Line x: Potential infinite loop detected.
 If you are certain your code is correct, press run again without editing your code.
 The time limit will be increased from 1 to 10 seconds.
 This page may be unresponsive for up to 10 seconds if you do so.
