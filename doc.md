@@ -520,6 +520,47 @@ This should be enough for most, if not all correct code to run while protecting 
 1s is still a long time to be unresponsive when code is being typed though.
 Maybe a starting time limit of 100ms is better, but more tests need to be done to determine if 100ms will create too many false positives.
 
+## Sandboxing
+
+While not entirely needed, if done right this would solve any potential questions of code that manages to run but are not valid _Source_, such as `eval`, `Function` constructor etc.
+
+The first issue is that eval has scope. This means:
+
+```js
+const a = 123;
+///... other code
+return eval(transpiled_code);
+// assuming code is 'a;' without having a being declared.
+```
+allows access of these variables in its surrounding scope. Ignoring any security risks if they exist (since autograder actually executes these codes there is a chance there may be), this might lead to lots of confusion. Javascript code gets minified, and so there'll be many one-letter variable names throughout the code. Accidentally referring to such variables in _Source_ without having first been declared might lead to the values from the outside leaking, and not throwing an undefined variable error as expected.
+
+Thankfully, as long as eval is used in an indirect scope (such as `window.eval`) and not those 4 leters proceeded by a left parentheses, it will be executed in the global scope.
+
+Which just leads to the hiding of global variables. For this, we just loop through all the keys in `window` and filter them to see if they're valid identifiers:
+
+```js
+function isValidIdentifier(candidate) {
+  try {
+    eval(`"use strict";{const ${candidate} = 1;}`)
+    return true
+  } catch {
+    return false
+  }
+}
+const globals = Object.getOwnPropertyNames(window).filter(isValidIdentifier);
+```
+
+And then we wrap the transpiled code with an immediately invoked arrow function expression, with these globals as parameters and setting them to undefined by not passing in arguments:
+
+```js
+((eval, window, Number, parseInt, isNaN, ... et) => {
+  transpied code...
+})();
+```
+
+This also lets _Source_ be able to use all these previously unsuable names such as Number as variable names.
+
+
 ## Nice function strings
 Small note, since not getting into the implementation details.
 
