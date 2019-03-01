@@ -111,7 +111,7 @@ if (true) {
 STUDENT_GLOBALS['one'] = {kind: 'const', value: one};
 ```
 
-the last line value is now incorrect. Luckily `eval` is here yet again. All that needs to be done is to save the value of the last statement and then return it at the end, so we do that by transforming the last statement into a string and the `eval`ing it:
+the last line value is now incorrect. Luckily `eval` is here yet again. All that needs to be done is to save the value of the last statement and then return it at the end, so we do that by transforming the last statement into a string and then `eval`ing it:
 
 ```js
 const one = 1;
@@ -455,7 +455,7 @@ function call(f, args) {
   while (true) {
     if (f.transformedFunction !== undefined) { // retrieve the real function that returns { isTail: etc }
       f = f.transformedFunction;
-    }
+    } // else it's a builtin function like alert, prompt and we call it normally
     result = f(...args);
     if (result.isTail === true) {
       f = result.f;
